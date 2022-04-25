@@ -29,7 +29,6 @@ public class SignIn extends AppCompatActivity {
 
         db = DBHelper.getInstance(this);
 
-
         registerLink.setOnClickListener(view -> SignIn.this.startActivity(new Intent(SignIn.this, SignUp.class)));
 
         login.setOnClickListener(view -> {
