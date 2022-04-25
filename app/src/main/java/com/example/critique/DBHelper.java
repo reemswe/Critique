@@ -11,18 +11,12 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private static final String DatabaseName = "Users.db";
     private static final String TableName = "users";
-    private static final String col1 = "ID";
+//    private static final String col1 = "ID";
     private static final String col2 = "username";
     private static final String col3 = "password";
     private static final String col4 = "type";
 
     public static DBHelper getInstance(Context ctx) {
-        /**
-         * use the application context as suggested by CommonsWare.
-         * this will ensure that you dont accidentally leak an Activitys
-         * context (see this article for more information:
-         * http://developer.android.com/resources/articles/avoiding-memory-leaks.html)
-         */
         if (instance == null) {
             instance = new DBHelper(ctx.getApplicationContext());
         }

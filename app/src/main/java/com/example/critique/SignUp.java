@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -33,16 +32,12 @@ public class SignUp extends AppCompatActivity {
         retailer = (RadioButton) findViewById(R.id.retailer);
         regularUser = (RadioButton) findViewById(R.id.regularUser);
         signUp = (Button) findViewById(R.id.signUp);
-        usersDB = usersDB.getInstance(this);
+        usersDB = DBHelper.getInstance(this);
         signInLink = (TextView) findViewById(R.id.signInLink);
 
-        signUp.setOnClickListener(view -> {
-            addUser();
-        });
+        signUp.setOnClickListener(view -> addUser());
 
-        signInLink.setOnClickListener(view -> {
-            SignUp.this.startActivity(new Intent(SignUp.this, SignIn.class));
-        });
+        signInLink.setOnClickListener(view -> SignUp.this.startActivity(new Intent(SignUp.this, SignIn.class)));
 
     }
 

@@ -27,12 +27,10 @@ public class SignIn extends AppCompatActivity {
         login = (Button) findViewById(R.id.login);
         registerLink = (TextView) findViewById(R.id.registerLink);
 
-        db = db.getInstance(this);
+        db = DBHelper.getInstance(this);
 
 
-        registerLink.setOnClickListener(view -> {
-            SignIn.this.startActivity(new Intent(SignIn.this, SignUp.class));
-        });
+        registerLink.setOnClickListener(view -> SignIn.this.startActivity(new Intent(SignIn.this, SignUp.class)));
 
         login.setOnClickListener(view -> {
             String userN = username.getText().toString();
