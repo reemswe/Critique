@@ -52,10 +52,10 @@ public class SignUp extends AppCompatActivity {
         String confirmPass = confirmPassword.getText().toString();
 
         if(userN.equals("") || pass.equals("") || confirmPass.equals("") || radioGroup.getCheckedRadioButtonId() == -1)
-            Toast.makeText(SignUp.this, "Please fill all field", Toast.LENGTH_LONG).show();
+            Toast.makeText(SignUp.this, "Please fill all field", Toast.LENGTH_SHORT).show();
         else {
             if (!pass.equals(confirmPass))
-                Toast.makeText(SignUp.this, "The two passwords don't match", Toast.LENGTH_LONG).show();
+                Toast.makeText(SignUp.this, "The two passwords don't match", Toast.LENGTH_SHORT).show();
             else {
                 String type = "";
                 if(retailer.isChecked())
@@ -66,10 +66,10 @@ public class SignUp extends AppCompatActivity {
                 boolean isInserted = usersDB.insertData(userN, pass, type);
 
                 if (isInserted) {
-                    Toast.makeText(SignUp.this, "New Account Created Successfully", Toast.LENGTH_LONG).show();
+                    Toast.makeText(SignUp.this, "New Account Created Successfully", Toast.LENGTH_SHORT).show();
                     SignUp.this.startActivity(new Intent(SignUp.this, SignIn.class));
                 } else
-                    Toast.makeText(SignUp.this, "Account is not Created", Toast.LENGTH_LONG).show();
+                    Toast.makeText(SignUp.this, "Account is not Created", Toast.LENGTH_SHORT).show();
             }
         }
     }
