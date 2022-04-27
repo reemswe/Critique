@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Critique">
         <activity
+            android:name=".NotificationView"
+            android:exported="false" />
+        <activity
             android:name=".RetailerNotifaction"
             android:exported="false" />
         <activity
