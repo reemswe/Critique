@@ -3,6 +3,7 @@
     package="com.example.critique">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission><!--afnan: to remove error from acccess fine location-->
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -22,6 +23,10 @@
         <activity
             android:name=".SignUp"
             android:exported="false" />
+
+        <activity android:name=".RetailerProfile"
+            android:exported="false" />
+
         <activity
             android:name=".SignIn"
             android:exported="true">
@@ -31,6 +36,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

@@ -5,13 +5,16 @@
       <map>
         <entry key="..\:/Users/Reem Almousa/Desktop/Mobile/Critique/app/src/main/res/layout/activity_login.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/Reem Almousa/Desktop/Mobile/Critique/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/Reem Almousa/Desktop/Mobile/Critique/app/src/main/res/layout/activity_notification_view.xml" value="0.22" />
         <entry key="..\:/Users/Reem Almousa/Desktop/Mobile/Critique/app/src/main/res/layout/activity_register.xml" value="0.22" />
-        <entry key="..\:/Users/Reem Almousa/Desktop/Mobile/Critique/app/src/main/res/layout/activity_retailer_notifaction.xml" value="0.1" />
+        <entry key="..\:/Users/afnan/Desktop/4th semester/Mobile - SWE 483/project/Critique/app/src/main/res/layout/activity_retailer_notifaction.xml" value="0.2755208333333333" />
+        <entry key="..\:/Users/afnan/Desktop/4th semester/Mobile - SWE 483/project/Critique/app/src/main/res/layout/activity_signin.xml" value="0.2755208333333333" />
+        <entry key="..\:/Users/afnan/Desktop/4th semester/Mobile - SWE 483/project/Critique/app/src/main/res/layout/activity_signup.xml" value="0.2755208333333333" />
+        <entry key="..\:/Users/afnan/Desktop/4th semester/Mobile - SWE 483/project/Critique/app/src/main/res/layout/retailer_profile.xml" value="0.2755208333333333" />
+        <entry key="..\:/Users/afnan/Desktop/4th semester/Mobile - SWE 483/project/Critique/app/src/main/res/layout/scrollable_dialog.xml" value="0.2755208333333333" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

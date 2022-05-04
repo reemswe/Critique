@@ -49,10 +49,18 @@ public class SignIn extends AppCompatActivity {
             if (userN.equals("") || pass.equals(""))
                 Toast.makeText(SignIn.this, "Please fill all field", Toast.LENGTH_SHORT).show();
             else {
-                boolean valid = db.validateInput(userN, pass);
+                //boolean valid = db.validateInput(userN, pass);
+                int retailerID = db.validateInput2(userN,pass);//afnan to get retailer id
+                boolean valid = false;
+                if(retailerID!=0)
+                    valid = true;
                 if (valid) {
-                    SignIn.this.startActivity(new Intent(SignIn.this, RetailerNotifaction.class));
-                    createChannel();
+                    Intent i = new Intent(SignIn.this,RetailerProfile.class);
+                    i.putExtra("retailerID",retailerID);
+                    SignIn.this.startActivity(i);
+
+                    //SignIn.this.startActivity(new Intent(SignIn.this, RetailerNotifaction.class));
+                    createChannel();//?
                 }
                 else
                     Toast.makeText(SignIn.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
