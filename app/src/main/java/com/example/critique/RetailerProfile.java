@@ -8,15 +8,19 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 public class RetailerProfile extends AppCompatActivity {
 
@@ -27,13 +31,14 @@ public class RetailerProfile extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.retailer_profile);
-
-        int id = getIntent().getIntExtra("retailerID",-1);
-
         database = DBHelper.getInstance(this);
 
+        Intent intent = getIntent();
+        int id = intent.getIntExtra("ID",-1);
+
         //adding username and store to profile
-        getUserName(id);
+        String name = intent.getStringExtra("name");
+        getUserName(name);
         showStores(id);
 
         TableLayout table = (TableLayout)findViewById(R.id.tableLayout);
@@ -140,18 +145,21 @@ public class RetailerProfile extends AppCompatActivity {
         });
     }
 
-    public void getUserName(int retailerID){
+    public void getUserName(String name){//int retailerID
         TextView userName = findViewById(R.id.userName);
-        Cursor username  = database.getUserName(retailerID);
-        if(username.getCount()==0)
-            return;//impossible?
-        else{
-            StringBuffer usernameBuffer = new StringBuffer();
-            username.moveToFirst();
-            usernameBuffer.append(username.getString(0));
-            userName.setText(usernameBuffer);
-        }
-        username.close();
+//        Cursor username  = database.getUserName(retailerID);
+
+        userName.setText(name);
+
+//        if(username.getCount()==0)
+//            return;//impossible?
+//        else{
+//            StringBuffer usernameBuffer = new StringBuffer();
+//            username.moveToFirst();
+//            usernameBuffer.append(username.getString(0));
+//            userName.setText(usernameBuffer);
+//        }
+//        username.close();
     }
 
     public void showStores(int retailerID){
@@ -262,4 +270,23 @@ public class RetailerProfile extends AppCompatActivity {
             builder.show();
         }
     };
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.mainmenu, menu);
+        MenuItem item = menu.findItem(R.id.myswitch);
+        item.setActionView(R.layout.switch_layout);
+
+        Switch darkmode = item.getActionView().findViewById(R.id.darkmode);
+        darkmode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (darkmode.isChecked())
+                    getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                else
+                    getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            }
+        });
+        return true;
+    }
 }
