@@ -44,7 +44,7 @@ public class DBHelper extends SQLiteOpenHelper {
         //creating table for store's reviews
         //sqLiteDatabase.execSQL("CREATE TABLE "+ reviewsTable + "(RID INTEGER PRIMARY KEY AUTOINCREMENT, " + colStoreID + " TEXT," + colReviews +" TEXT, " + colReviewsRating + " INTEGER, " +
         //        "FOREIGN KEY ("+ colStoreID +") REFERENCES "+ storesTable + "(SID));");
-        sqLiteDatabase.execSQL("CREATE TABLE "+ reviewsTable + "(RID INTEGER PRIMARY KEY AUTOINCREMENT, STOREID INTEGER, REVIEW TEXT, RATING INTEGER, FOREIGN KEY (STOREID) REFERENCES STORETABLE(SID));");
+        sqLiteDatabase.execSQL("CREATE TABLE "+ reviewsTable + "(RID INTEGER PRIMARY KEY AUTOINCREMENT, STOREID INTEGER, REVIEW TEXT, RATING FLOAT, FOREIGN KEY (STOREID) REFERENCES STORETABLE(SID));");
         sqLiteDatabase.execSQL("CREATE TABLE " + TableName2 + "(ID INTEGER PRIMARY KEY, StoreID INTEGER, Title TEXT, notificationText TEXT, Latitude TEXT, Longitude TEXT, FOREIGN KEY (StoreID) REFERENCES STORETABLE(SID))");
     }
 
@@ -88,7 +88,7 @@ public class DBHelper extends SQLiteOpenHelper {
             return true;
     }
 
-    public boolean insertDataIntoReviewsTable(int storeID , String review , int rating) {
+    public boolean insertDataIntoReviewsTable(int storeID , String review , float rating) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(colStoreID,storeID);
@@ -168,6 +168,13 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();//close in ondestroy()//change xxx.this
         String[] conditionArgs = {Integer.toString(retailerID)};
         Cursor c = db.rawQuery("select * from "+storesTable+" where retailerid=?",conditionArgs);
+        return c;
+    }
+
+    public Cursor getAllStores(){
+        SQLiteDatabase db = this.getWritableDatabase();//close in ondestroy()//change xxx.this
+        //String[] conditionArgs = {Integer.toString()};
+        Cursor c = db.rawQuery("select * from "+storesTable,null);
         return c;
     }
 

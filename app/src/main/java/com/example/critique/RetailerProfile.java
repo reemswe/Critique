@@ -261,7 +261,7 @@ public class RetailerProfile extends AppCompatActivity {
                 buffer.append("No reviews");
             else{
                 while(c.moveToNext()) {
-                    buffer.append("rating: "+c.getInt(3)+" | ");
+                    buffer.append("rating: "+c.getFloat(3)+" | ");
                     buffer.append("review: "+c.getString(2)+"\n");
                     buffer.append("--------------------------\n");
                 }
